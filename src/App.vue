@@ -3,7 +3,7 @@
     <v-card>
       <v-toolbar color="cyan" dark flat>
 
-        <v-toolbar-title>Dashboard van persoon X</v-toolbar-title>
+        <v-toolbar-title>{{$t('DASHBOARD.titel')}}: X</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-select v-model="$i18n.locale" v-bind:items="['en', 'nl']">
         </v-select>

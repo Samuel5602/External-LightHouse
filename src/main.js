@@ -12,7 +12,11 @@ Vue.use(VueI18n)
 
 const messages = {
   nl: {
+    DASHBOARD:{
+      titel: "Dashboard voor user"
+    },
     EXPLANATIONS: {
+      titel: 'Hover voor uitleg',
       BLANK: 'Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen. De combinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert.',
       ORIENTATION: 'Orientatie is het verkennen van de leeromgeving en het activeren van voorkennis. Voorbeelden van oriënterende activiteiten bij het schrijven van een essay zijn: inhoud scannen van een leeromgeving, bepalen van leerdoelen en de rubriek bekijken.',
       PLANNING: 'Plannen heeft betrekking op activiteiten die jouw voorbereiding op het uitvoeren van de taak. Het gaat over het bepalen en plannen van activiteiten die nodig zijn om jouw leerdoel te behalen.',
@@ -29,7 +33,11 @@ const messages = {
   },
   en:
   {
+    DASHBOARD:{
+      titel: "Dashboard for user"
+    },
     EXPLANATIONS: {
+      titel: 'Hover for explanation',
       BLANK: 'While writing an essay, you make use of cognitive- and metacognitive activities. The combination of these activities defines your learning strategy. Learning strategy refers to how you approach and carry out a learning task. ',
       ORIENTATION: 'Orientation is exploring the learning environment and activating prior knowledge. Examples of orientation activities during essay writing are: scanning the content of the learning environment, determining the learning goals, and looking at the rubric.',
       PLANNING: 'Planning prepares you to execute the actual task. It is about planning time and planning activities, that enables you to reach your learning goals.',
