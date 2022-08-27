@@ -49,11 +49,8 @@
             </v-flex>
             <v-flex>
                 <v-card>
-                    <v-card-title>Reflection</v-card-title>
-                    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
-                        pharetra, sit amet vehicula leo sodales. Phasellus sed mi mi. Proin quis aliquam sapien. Cras
-                        ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
-                        ultricies. Aliquam at quam aliquet, l</v-card-text>
+                    <v-card-title>{{ $t('Voorbeeld_reflectievragen.titel') }}</v-card-title>
+                    <v-card-text>{{ $t('Voorbeeld_reflectievragen.value') }}</v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
