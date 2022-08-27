@@ -40,35 +40,40 @@ const messages = {
       value: 'Cognitie verwijst naar de mentale activiteiten die nodig zijn voor waarnemen, denken, onthouden van kennis en deze kennis weer toepassen. Deze activiteiten zorgen ervoor dat een taak uitgevoerd kan worden en nieuwe kennis opgenomen wordt. Voorbeelden van cognitieve activiteiten tijdens de essaytaak zijn: (her)lezen van informatie en het schrijven van je essay.'
     },
     Voorbeeld_reflectievragen: {
+      titel: 'Reflectie',
       value: 'Wat val je op als je naar jouw tijdlijn kijkt? Welke processen komen meer of minder voor en wanneer komen ze voor? Heeft deze aanpak jou wel of niet geholpen bij het schrijven van je essay? Waarom wel of niet? Wat zou je een volgende keer anders doen en waarom denkt je dat dit je zou helpen? '
     }
   },
   en: {
-    Learning_Process: {
+    LEERPROCES: {
       value: 'While writing an essay, you make use of cognitive- and metacognitive activities. The combination of these activities defines your learning strategy. Learning strategy refers to how you approach and carry out a learning task. '
     },
-    Orientation: {
+    ORIENTATIE: {
       value: 'Orientation is exploring the learning environment and activating prior knowledge. Examples of orientation activities during essay writing are: scanning the content of the learning environment, determining the learning goals, and looking at the rubric.'
     },
-    Planning: {
+    PLANNEN: {
       value: 'Planning prepares you to execute the actual task. It is about planning time and planning activities, that enables you to reach your learning goals.'
     },
-    Monitoring: {
+    MONITOREN: {
       value: 'Monitoring encompasses checking your learning process and controlling the execution of your planned strategies to pursue your learning goals. Am I still learning in the way I intended to learn? Examples of monitoring activities for writing the essay are: using annotations and notes, checking your planning, and checking the timer.'
     },
-    Evaluation: {
+    EVALUATIE: {
       value: 'Evaluation activities are closely related to monitoring. In both, you are checking your learning process and behavior, but with evaluation, you add a judgement to these activities. At monitoring, you check whether your learning process is occurring in the way you planned. With evaluation activities, you rate if the things you do are still helpful to pursuing your learning goals and may lead to adjustments in your learning strategy if necessary. Examples of evaluation with writing an essay are: checking the general instruction and/or the rubric to evaluate the relevance of the information you were using or were planning to use in your essay.'
     },
-    Reading: {
+    LEZEN: {
       value: 'Reading is part of cognitive processes and reflects when and how long you first read a text.'
     },
-    Rereading: {
+    HERLEZEN: {
       value: 'The cognitive rereading process reflects when and how long you have read a text again.'
     },
-    Writing: {
+    SCHRIJVEN: {
       value: 'Writing shows when and how long you were writing.'
     },
-    Reflection: {
+    Cognitieve_processen: {
+      value: 'missing'
+    },
+    Voorbeeld_reflectievragen: {
+      titel: 'Reflection',
       value: 'What do you notice when you look at your timeline? Which processes are more or less common and when do they occur? Did this approach help you or not in writing your essay? Why or not? What would you do differently next time and why do you think this would help you?'
     }
   }
