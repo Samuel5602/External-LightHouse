@@ -14,7 +14,7 @@
             <v-flex>
                 <v-card>
                     <v-card-title>Hover voor uitleg</v-card-title>
-                    <v-card-text v-model="uitleg">{{uitleg}}</v-card-text>
+                    <v-card-text v-t="uitleg"></v-card-text>
                 </v-card>
             </v-flex>
             <v-flex>
@@ -64,9 +64,11 @@ export default {
     },
     methods: {
         // poggers
-        testfunction: function (parameter) {
+        testfunction(parameter) {
             // `this` inside methods point to the Vue instance
-            console.log(parameter + "NOGGER")
+            var temp = parameter.split(' ').join('').toUpperCase()
+            this.uitleg = "EXPLANATIONS." + temp
+            console.log(temp)
             // `event` is the native DOM event
         }
     },
@@ -74,161 +76,14 @@ export default {
         uitleg: "",
         testtext: "yeet",
         meta:
-            [{ 'name': 'BLANK', 'data': [0.0004860709980034658], 'color': '#ebebeb' },
-            { 'name': 'Orientation', 'data': [0.027896832149713703], 'color': '#175a91' },
-            { 'name': 'Orientation', 'data': [0.031048623877398897], 'color': '#175a91' },
-            { 'name': 'BLANK', 'data': [0.07715586149373357], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.01620140788019836], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.049616152513164424], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.0009846053549300848], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.004888033497673916], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.001438079875749898], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.034820228031532285], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.003527609935214504], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.0774305347500018], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.01269920402278879], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.03874666545228811], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.0014385592357084587], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.11127190974610701], 'color': '#ebebeb' },
-            { 'name': 'Evaluation', 'data': [0.010671990757940009], 'color': '#2286de' },
-            { 'name': 'BLANK', 'data': [0.008818305798098391], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.0012947512481334966], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.09685995259130009], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.000630358345537041], 'color': '#104469' },
-            { 'name': 'Monitoring', 'data': [0.0023162673198745543], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.0013704901215896292], 'color': '#ebebeb' },
-            { 'name': 'Evaluation', 'data': [0.0024145361113840913], 'color': '#2286de' },
-            { 'name': 'Monitoring', 'data': [0.0018158155231134954], 'color': '#104469' },
-            { 'name': 'BLANK', 'data': [0.003653202244363385], 'color': '#ebebeb' },
-            { 'name': 'Orientation', 'data': [0.011657075472828682], 'color': '#175a91' },
-            { 'name': 'BLANK', 'data': [0.27895106453862795], 'color': '#ebebeb' },
-            { 'name': 'Monitoring', 'data': [0.03622810822989142], 'color': '#104469' },
-            { 'name': 'Orientation', 'data': [0.04919623318944544], 'color': '#175a91' },
-            { 'name': 'Monitoring', 'data': [0.0017285720106513525], 'color': '#104469' },
-            { 'name': 'Orientation', 'data': [0.002739542163303521], 'color': '#175a91' },
-            { 'name': 'BLANK', 'data': [4.793599586161434e-07], 'color': '#ebebeb' }],
+            [{ 'name': 'BLANK', 'data': [0.169], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [9.699333333333334], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [0.000166666666665094], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [10.795166666666667], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [26.825999999999997], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [5.633], 'color': '#104469' }, { 'name': 'BLANK', 'data': [17.25083333333334], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.3423333333333333], 'color': '#104469' }, { 'name': 'BLANK', 'data': [1.6995000000000005], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.5], 'color': '#104469' }, { 'name': 'BLANK', 'data': [12.106499999999997], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [1.2265], 'color': '#104469' }, { 'name': 'BLANK', 'data': [26.921499999999995], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [4.415333333333334], 'color': '#104469' }, { 'name': 'BLANK', 'data': [13.471666666666678], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.5001666666666666], 'color': '#104469' }, { 'name': 'BLANK', 'data': [38.68766666666667], 'color': '#ebebeb' }, { 'name': 'Evaluation', 'data': [3.7105], 'color': '#2286de' }, { 'name': 'BLANK', 'data': [3.0660000000000025], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.45016666666666666], 'color': '#104469' }, { 'name': 'BLANK', 'data': [33.67683333333335], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.21916666666666668], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.8053333333333333], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.4765000000000157], 'color': '#ebebeb' }, { 'name': 'Evaluation', 'data': [0.8395], 'color': '#2286de' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.6313333333333333], 'color': '#104469' }, { 'name': 'BLANK', 'data': [1.2701666666666824], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [4.053], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [96.98733333333334], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [12.596], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.00016666666664377772], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [17.104833333333332], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [0.00016666666664377772], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.601], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.00016666666664377772], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [0.9525], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [0.0], 'color': '#ebebeb' }]
+        , m_perc:
+            [{ 'Orientation': 0.12253836559267613 }, { 'Monitoring': 0.08030337747601521 }, { 'Evaluation': 0.013086533142484062 }]
+        , cog:
+            [{ 'name': 'BLANK', 'data': [0.0], 'color': '#ebebeb' }, { 'name': 'ESSAY_TASK_START', 'data': [0.16883333333333334], 'color': '#000000' }, { 'name': 'BLANK', 'data': [23.106833333333334], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [2.989], 'color': '#690008' }, { 'name': 'BLANK', 'data': [2.729333333333333], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [12.245166666666666], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.000166666666665094], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [6.250166666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [5.633333333333333], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [3.154166666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.000166666666665094], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [6.646166666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.000166666666665094], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [5.203], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [2.2466666666666666], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.875], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [0.2575], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.0018333333333373503], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.9075], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.5003333333333302], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [1.6511666666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [3.116333333333344], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [7.338666666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [1.2268333333333459], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [2.2535], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [13.261166666666666], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666665798857], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [2.510666666666667], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.21099999999999852], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [8.679333333333334], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666665798857], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [0.005], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [4.415666666666667], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [3.849833333333333], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [7.156666666666666], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666664377772], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [1.5531666666666666], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.9111666666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.5004999999999882], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [17.191833333333335], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [5.295833333333333], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.7845], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.2941666666666549], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [5.952166666666667], 'color': '#690008' }, { 'name': 'BLANK', 'data': [1.0686666666666724], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [6.477833333333334], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.9003333333333217], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.1555], 'color': '#690008' }, { 'name': 'BLANK', 'data': [4.276999999999987], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [3.0656666666666665], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [0.45050000000000523], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.5198333333333334], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.1980000000000075], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [3.5415], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.002833333333342125], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [2.449333333333333], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [1.5691666666666666], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.6210000000000093], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [8.2175], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [2.5756666666666668], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [11.2975], 'color': '#690008' }, { 'name': 'BLANK', 'data': [0.00016666666664377772], 'color': '#ebebeb' }, { 'name': 'Elaboration/Organization', 'data': [0.6936666666666667], 'color': '#ffa9aa' }, { 'name': 'BLANK', 'data': [1.4373333333333278], 'color': '#ebebeb' }, { 'name': 'First Reading', 'data': [0.5525], 'color': '#690008' }, { 'name': 'BLANK', 'data': [8.825333333333333], 'color': '#ebebeb' }, { 'name': 'Write Essay', 'data': [20.4845], 'color': '#dd1d08' }, { 'name': 'BLANK', 'data': [0.00016666666667219943], 'color': '#ebebeb' }, { 'name': 'Write Essay', 'data': [75.97266666666667], 'color': '#dd1d08' }, { 'name': 'BLANK', 'data': [0.0], 'color': '#ebebeb' }]
+        , c_perc:
+            [{ 'ESSAY_TASK_START': 0.0005335555340190374 }, { 'First Reading': 0.43391390636390076 }, { 'Elaboration/Organization': 0.06986048549866636 }, { 'Write Essay': 0.3048287565891212 }]
 
-        cog:
-            [{ 'name': 'BLANK', 'data': [0.0], 'color': '#ebebeb' },
-            {
-                'name': 'ESSAY_TASK_START',
-                'data': [0.00048559163804488245],
-                'color': '#000000'
-            },
-            { 'name': 'BLANK', 'data': [0.06645894401794723], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.008596841497232888], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.007849998681760118], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.035219055517073605], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.017976477806832314], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.016202366600115536], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.009071887216188929], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.019115437068426222], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.014964659187053447], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.0064617722417028844],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.0025166397825623077], 'color': '#ebebeb' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.0007406111360112044],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'First Reading', 'data': [0.002610114974486072], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.0014390385956670748], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.004749019109684727], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.008963072505590558], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.021107177696339824], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.003528568655131681], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.006481426000004786], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.03814123382459739], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.007221078416098814],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.0006068697075664597], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.024963149203183932], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [1.4380798757540614e-05],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.012700162742705912], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.011072735683315627], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.020583716621566883], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.004467155454037752],
-                'color': '#ffa9aa'
-            },
-            {
-                'name': 'First Reading',
-                'data': [0.0026206608935748776],
-                'color': '#690008'
-            },
-            { 'name': 'BLANK', 'data': [0.0014395179556256354], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.04944645908782597], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.015231662683984348],
-                'color': '#ffa9aa'
-            },
-            {
-                'name': 'First Reading',
-                'data': [0.0022563473250515886],
-                'color': '#690008'
-            },
-            { 'name': 'BLANK', 'data': [0.000846070326899484], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.01711938220088538], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.0030736560544361025], 'color': '#ebebeb' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.018631283510257113],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.0025895024962669932], 'color': '#ebebeb' },
-            {
-                'name': 'First Reading',
-                'data': [0.0004472428413582197],
-                'color': '#690008'
-            },
-            { 'name': 'BLANK', 'data': [0.012301335257164592], 'color': '#ebebeb' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.00881734707818127],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.0012957099680506179], 'color': '#ebebeb' },
-            {
-                'name': 'First Reading',
-                'data': [0.0014951237108213888],
-                'color': '#690008'
-            },
-            { 'name': 'BLANK', 'data': [0.0005694796307968986], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.010185919759936546], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.007044673951340119], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.004513174010061793], 'color': '#690008' },
-            { 'name': 'BLANK', 'data': [0.001786095205681404], 'color': '#ebebeb' },
-            { 'name': 'First Reading', 'data': [0.02363484275794958], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.007408028799946398], 'color': '#690008' },
-            { 'name': 'First Reading', 'data': [0.03249341479256895], 'color': '#690008' },
-            {
-                'name': 'Elaboration/Organization',
-                'data': [0.0019950961476237206],
-                'color': '#ffa9aa'
-            },
-            { 'name': 'BLANK', 'data': [0.004134000282822403], 'color': '#ebebeb' },
-            {
-                'name': 'First Reading',
-                'data': [0.0015890782627036026],
-                'color': '#690008'
-            },
-            { 'name': 'BLANK', 'data': [0.025383068526902863], 'color': '#ebebeb' },
-            { 'name': 'Write Essay', 'data': [0.05891669442959757], 'color': '#dd1d08' },
-            { 'name': 'Write Essay', 'data': [0.218509526080777], 'color': '#dd1d08' },
-            { 'name': 'BLANK', 'data': [0.0898948523930847], 'color': '#ebebeb' }]
     }),
     computed: {
         chartOptionsYear: function () {
