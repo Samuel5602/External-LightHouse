@@ -10,32 +10,36 @@
                 </div>
             </v-col>
         </v-layout>
-        <v-layout row>
-            <v-flex>
+        <v-row align="stretch" no-gutters>
+            <v-col md="3">
                 <v-card>
                     <v-card-title>Hover voor uitleg</v-card-title>
                     <v-card-text v-t="uitleg"></v-card-text>
                 </v-card>
-            </v-flex>
-            <v-flex>
+            </v-col>
+            <v-col md="2">
                 <v-card>
                     <v-card-title>Cognition</v-card-title>
-                    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
-                        pharetra, sit amet vehicula leo sodales. Phasellus sed mi mi. Proin quis aliquam sapien. Cras
-                        ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
-                        ultricies. Aliquam at quam aliquet, l</v-card-text>
+                    <v-card-text>
+                        <v-list flat>
+                            <v-list-item-group v-bind="m_perc" color="primary">
+                                <v-list-item v-for="(item, i) in m_perc" :key="i">
+                                    <v-list-item-content>
+                                        <v-list-item-title>{{item}}</v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list-item-group>
+                        </v-list>
+                    </v-card-text>
                 </v-card>
-            </v-flex>
-            <v-flex>
+            </v-col>
+            <v-col md="2">
                 <v-card>
                     <v-card-title>Metacognition</v-card-title>
-                    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
-                        pharetra, sit amet vehicula leo sodales. Phasellus sed mi mi. Proin quis aliquam sapien. Cras
-                        ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
-                        ultricies. Aliquam at quam aliquet, l</v-card-text>
+                    <v-card-text>1</v-card-text>
                 </v-card>
-            </v-flex>
-            <v-flex>
+            </v-col>
+            <v-col md="2">
                 <v-card>
                     <v-card-title>Other</v-card-title>
                     <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
@@ -43,14 +47,15 @@
                         ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
                         ultricies. Aliquam at quam aliquet, l</v-card-text>
                 </v-card>
-            </v-flex>
-            <v-flex>
+            </v-col>
+            <v-col md="3">
                 <v-card>
                     <v-card-title>{{ $t('Voorbeeld_reflectievragen.titel') }}</v-card-title>
                     <v-card-text>{{ $t('Voorbeeld_reflectievragen.value') }}</v-card-text>
                 </v-card>
-            </v-flex>
-        </v-layout>
+            </v-col>
+        </v-row>
+
     </v-container>
 </template>
 
@@ -104,6 +109,9 @@ export default {
                         horizontal: true
                     },
                 },
+                dataLabels: {
+                    enabled: false
+                },
                 stroke: {
                     width: 1,
                     colors: ['#fff']
@@ -115,15 +123,18 @@ export default {
                     categories: [""],
                     labels: {
                         show: false
-                        // formatter: function (val) {
-                        //     return val + "K"
-                        // }
                     }
                 },
                 yaxis: {
                     title: {
                         text: undefined
                     },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return (Math.round(val * 100) / 100).toFixed(2);
+                        }
+                    }
                 },
                 fill: {
                     opacity: 1

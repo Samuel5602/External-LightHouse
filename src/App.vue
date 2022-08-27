@@ -4,8 +4,8 @@
       <v-toolbar color="cyan" dark flat>
 
         <v-toolbar-title>Dashboard van persoon X</v-toolbar-title>
-
-        <v-select v-model="$i18n.locale" v-bind:items="['en','nl']">
+        <v-spacer></v-spacer>
+        <v-select v-model="$i18n.locale" v-bind:items="['en', 'nl']">
         </v-select>
 
         <template v-slot:extension>
