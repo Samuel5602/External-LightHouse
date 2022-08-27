@@ -69,6 +69,7 @@ export default {
         apexchart: VueApexCharts,
     },
     methods: {
+        // poggers
         testfunction: function (parameter) {
             // `this` inside methods point to the Vue instance
             console.log(parameter)
