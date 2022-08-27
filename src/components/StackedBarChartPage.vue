@@ -3,10 +3,10 @@
         <v-layout row>
             <v-col>
                 <div id="chart">
-                    <apexchart type="bar" height="250" :options="chartOptions" :series="meta"></apexchart>
+                    <apexchart type="bar" height="250" :options="chartOptionsYear" :series="meta"></apexchart>
                 </div>
                 <div id="chart">
-                    <apexchart type="bar" height="250" :options="chartOptions" :series="cog"></apexchart>
+                    <apexchart type="bar" height="250" :options="chartOptionsYear" :series="cog"></apexchart>
                 </div>
             </v-col>
         </v-layout>
@@ -14,10 +14,7 @@
             <v-flex>
                 <v-card>
                     <v-card-title>Hover voor uitleg</v-card-title>
-                    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
-                        pharetra, sit amet vehicula leo sodales. Phasellus sed mi mi. Proin quis aliquam sapien. Cras
-                        ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
-                        ultricies. Aliquam at quam aliquet, l</v-card-text>
+                    <v-card-text v-model="uitleg">{{uitleg}}</v-card-text>
                 </v-card>
             </v-flex>
             <v-flex>
@@ -69,12 +66,12 @@ export default {
         // poggers
         testfunction: function (parameter) {
             // `this` inside methods point to the Vue instance
-            console.log(parameter)
+            console.log(parameter + "NOGGER")
             // `event` is the native DOM event
         }
     },
     data: () => ({
-        unique: [],
+        uitleg: "",
         testtext: "yeet",
         meta:
             [{ 'name': 'BLANK', 'data': [0.0004860709980034658], 'color': '#ebebeb' },
@@ -231,58 +228,60 @@ export default {
             { 'name': 'BLANK', 'data': [0.025383068526902863], 'color': '#ebebeb' },
             { 'name': 'Write Essay', 'data': [0.05891669442959757], 'color': '#dd1d08' },
             { 'name': 'Write Essay', 'data': [0.218509526080777], 'color': '#dd1d08' },
-            { 'name': 'BLANK', 'data': [0.0898948523930847], 'color': '#ebebeb' }],
-        chartOptions: {
-            chart: {
-                events: {
-                    dataPointMouseEnter: function (event, chartContext, config) {
-                        console.log(config.w.config.series[config.seriesIndex].name);
-                        this.testfunction(config.w.config.series[config.seriesIndex].name);
+            { 'name': 'BLANK', 'data': [0.0898948523930847], 'color': '#ebebeb' }]
+    }),
+    computed: {
+        chartOptionsYear: function () {
+            return {
+                chart: {
+                    events: {
+                        dataPointMouseEnter: (e, chart, opts) => {
+                            // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
+                            this.testfunction(opts.w.config.series[opts.seriesIndex].name);
+                        }
+                    },
+                    type: 'bar',
+                    height: 250,
+                    stacked: true,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true
+                    },
+                },
+                stroke: {
+                    width: 1,
+                    colors: ['#fff']
+                },
+                // title: {
+                //     text: 'Fiction Books Sales'
+                // },
+                xaxis: {
+                    categories: [""],
+                    labels: {
+                        show: false
+                        // formatter: function (val) {
+                        //     return val + "K"
+                        // }
                     }
                 },
-                type: 'bar',
-                height: 250,
-                stacked: true,
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: true
+                yaxis: {
+                    title: {
+                        text: undefined
+                    },
                 },
-            },
-            stroke: {
-                width: 1,
-                colors: ['#fff']
-            },
-            // title: {
-            //     text: 'Fiction Books Sales'
-            // },
-            xaxis: {
-                categories: [""],
-                labels: {
-                    show: false
-                    // formatter: function (val) {
-                    //     return val + "K"
-                    // }
+                fill: {
+                    opacity: 1
+                },
+                legend: {
+                    show: false,
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    offsetX: 40
                 }
-            },
-            yaxis: {
-                title: {
-                    text: undefined
-                },
-            },
-            fill: {
-                opacity: 1
-            },
-            legend: {
-                show: false,
-                position: 'top',
-                horizontalAlign: 'left',
-                offsetX: 40
             }
-        },
-
-
-    }),
+        }
+    }
 
 };
 </script>
