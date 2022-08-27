@@ -1,28 +1,57 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-card>
+      <v-toolbar color="cyan" dark flat>
+
+        <v-toolbar-title>Dashboard van persoon X</v-toolbar-title>
+
+        <v-select v-model="$i18n.locale" v-bind:items="['en','nl']">
+        </v-select>
+
+        <template v-slot:extension>
+          <v-tabs v-model="tab" align-with-title>
+            <v-tabs-slider color="yellow"></v-tabs-slider>
+            <v-tab v-for="item in items" :key="item.tab">
+              {{ item.tab }}
+            </v-tab>
+          </v-tabs>
+        </template>
+      </v-toolbar>
+      <v-tabs-items v-model="tab">
+        <v-tab-item v-for="item in items" :key="item.tab">
+          <v-card flat>
+            <component v-bind:is="item.content"></component>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
+
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SpiderGraphPageVue from './components/SpiderGraphPage.vue';
+import StackedBarChartVue from './components/StackedBarChartPage.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    SpiderGraphPageVue,
+    StackedBarChartVue
+  },
+
+  data() {
+    return {
+      tab: null,
+      langs: ['en', 'nl'],
+      items: [
+        { tab: 'Timeline', content: 'StackedBarChartVue' },
+        { tab: 'Results', content: 'SpiderGraphPageVue' }
+      ]
+    }
+  },
+  watch: {
+  },
+};
+</script>
