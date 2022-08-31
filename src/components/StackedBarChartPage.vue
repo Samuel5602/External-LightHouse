@@ -1,86 +1,74 @@
 <template>
-  <v-container fluid>
-    <v-layout row>
-      <v-col>
-        <div id="chart">
-          <apexchart
-            type="bar"
-            height="250"
-            :options="chartOptionsYear"
-            :series="meta"
-          ></apexchart>
-        </div>
-        <div id="chart">
-          <apexchart
-            type="bar"
-            height="250"
-            :options="chartOptionsYear"
-            :series="cog"
-          ></apexchart>
-        </div>
-      </v-col>
-    </v-layout>
-    <v-row align="stretch" no-gutters>
-      <v-col md="2">
-        <v-card>
-          <v-card-title>{{ $t("EXPLANATIONS.titel") }}</v-card-title>
-          <v-card-text v-t="uitleg"></v-card-text>
-        </v-card>
-      </v-col>
-      <v-col md="3">
-        <v-card>
-          <v-card-title>Cognition</v-card-title>
-          <v-card-text>
-            <v-list disabled>
-              <v-list-item-group v-model="c_perc" color="primary">
-                <v-list-item v-for="(item, i) in c_perc" :key="i">
-                  <v-list-item-content>
-                    <v-list-item>
-                      {{ item.name }} :
-                      {{ Math.round(item.data * 100).toFixed(0) }}%
-                    </v-list-item>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col md="2">
-        <v-card>
-          <v-card-title>Metacognition</v-card-title>
-          <v-card-text>
-            <v-list disabled>
-              <v-list-item-group v-model="m_perc" color="primary">
-                <v-list-item v-for="(item, i) in m_perc" :key="i">
-                  <v-list-item-content>
-                    <v-list-item>
-                      {{ item.name }} :
-                      {{ Math.round(item.data * 100).toFixed(0) }}%
-                    </v-list-item>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col md="2">
-        <v-card>
-          <v-card-title>Other</v-card-title>
-          <v-card-text>BLANK: No information</v-card-text>
-        </v-card>
-      </v-col>
-      <v-col md="3">
-        <v-card>
-          <v-card-title>{{
-            $t("Voorbeeld_reflectievragen.titel")
-          }}</v-card-title>
-          <v-card-text>{{ $t("Voorbeeld_reflectievragen.value") }}</v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+    <v-container fluid>
+        <v-layout row>
+            <v-col>
+                <div id="chart">
+                    <apexchart type="bar" height="250" :options="chartOptionsMeta" :series="meta"></apexchart>
+                </div>
+                <div id="chart">
+                    <apexchart type="bar" height="250" :options="chartOptionsCog" :series="cog"></apexchart>
+                </div>
+            </v-col>
+        </v-layout>
+        <v-row align="stretch" no-gutters>
+            <v-col md="2">
+                <v-card>
+                    <v-card-title>{{ $t('EXPLANATIONS.titel') }}</v-card-title>
+                    <v-card-text v-t="uitleg"></v-card-text>
+                </v-card>
+            </v-col>
+            <v-col md="3">
+                <v-card>
+                    <v-card-title>Cognition</v-card-title>
+                    <v-card-text>
+                        <v-list disabled>
+                            <v-list-item-group v-model="c_perc" color="primary">
+                                <v-list-item v-for="(item, i) in c_perc" :key="i">
+                                    <v-list-item-content>
+                                        <v-list-item> {{ item.name }} : {{ (Math.round(item.data * 100)).toFixed(0) }}%
+                                        </v-list-item>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list-item-group>
+                        </v-list>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+            <v-col md="2">
+                <v-card>
+                    <v-card-title>Metacognition</v-card-title>
+                    <v-card-text>
+                        <v-list disabled>
+                            <v-list-item-group v-model="m_perc" color="primary">
+                                <v-list-item v-for="(item, i) in m_perc" :key="i">
+                                    <v-list-item-content>
+                                        <v-list-item> {{ item.name }} : {{ (Math.round(item.data * 100)).toFixed(0) }}%
+                                        </v-list-item>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list-item-group>
+                        </v-list>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+            <v-col md="2">
+                <v-card>
+                    <v-card-title>Other</v-card-title>
+                    <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat neque ac leo
+                        pharetra, sit amet vehicula leo sodales. Phasellus sed mi mi. Proin quis aliquam sapien. Cras
+                        ante tellus, vehicula vel tellus at, egestas dapibus lacus. Ut commodo magna ac consectetur
+                        ultricies. Aliquam at quam aliquet, l</v-card-text>
+                </v-card>
+            </v-col>
+            <v-col md="3">
+                <v-card>
+                    <v-card-title>{{ $t('Voorbeeld_reflectievragen.titel') }}</v-card-title>
+                    <v-card-text>{{ $t('Voorbeeld_reflectievragen.value') }}</v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+
+    </v-container>
 </template>
 
 <script>
