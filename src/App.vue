@@ -32,6 +32,7 @@
 <script>
 import SpiderGraphPageVue from './components/SpiderGraphPage.vue';
 import StackedBarChartVue from './components/StackedBarChartPage.vue';
+// import ClusterPageVue from './components/ClusterPage.vue';
 
 export default {
   name: 'App',
@@ -39,6 +40,7 @@ export default {
   components: {
     SpiderGraphPageVue,
     StackedBarChartVue
+    // ClusterPageVue
   },
 
   data() {
@@ -48,6 +50,7 @@ export default {
       items: [
         { tab: 'Timeline', content: 'StackedBarChartVue' },
         { tab: 'Results', content: 'SpiderGraphPageVue' }
+        // { tab: 'Cluster', content: 'ClusterPageVue' }
       ]
     }
   },

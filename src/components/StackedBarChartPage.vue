@@ -3,10 +3,10 @@
         <v-layout row>
             <v-col>
                 <div id="chart">
-                    <apexchart type="bar" height="250" :options="chartOptionsYear" :series="meta"></apexchart>
+                    <apexchart type="bar" height="250" :options="chartOptionsMeta" :series="meta"></apexchart>
                 </div>
                 <div id="chart">
-                    <apexchart type="bar" height="250" :options="chartOptionsYear" :series="cog"></apexchart>
+                    <apexchart type="bar" height="250" :options="chartOptionsCog" :series="cog"></apexchart>
                 </div>
             </v-col>
         </v-layout>
@@ -83,15 +83,11 @@ export default {
         // poggers
         testfunction(parameter) {
             // `this` inside methods point to the Vue instance
-            var temp = parameter.split(' ').join('').toUpperCase()
-            this.uitleg = "EXPLANATIONS." + temp
-            console.log(temp)
-            // `event` is the native DOM event
+            this.uitleg = "EXPLANATIONS." + parameter.split(' ').join('').toUpperCase()
         }
     },
     data: () => ({
         uitleg: "",
-        testtext: "yeet",
         meta:
             [{ 'name': 'BLANK', 'data': [0.016900000000000002], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [0.9699333333333333], 'color': '#175a91' }, { 'name': 'Orientation', 'data': [1.0795166666666667], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [2.6826000000000003], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.5633], 'color': '#104469' }, { 'name': 'BLANK', 'data': [1.7250833333333333], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.0342333333333329], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.16995000000000035], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.049999999999999975], 'color': '#104469' }, { 'name': 'BLANK', 'data': [1.2106499999999996], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.12265000000000008], 'color': '#104469' }, { 'name': 'BLANK', 'data': [2.6921500000000003], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.44153333333333394], 'color': '#104469' }, { 'name': 'BLANK', 'data': [1.3471666666666668], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.050016666666665856], 'color': '#104469' }, { 'name': 'BLANK', 'data': [3.868766666666667], 'color': '#ebebeb' }, { 'name': 'Evaluation', 'data': [0.3710500000000003], 'color': '#2286de' }, { 'name': 'BLANK', 'data': [0.3066000000000004], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.04501666666666682], 'color': '#104469' }, { 'name': 'BLANK', 'data': [3.367683333333333], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [0.021916666666666737], 'color': '#104469' }, { 'name': 'Monitoring', 'data': [0.0805333333333351], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.04764999999999916], 'color': '#ebebeb' }, { 'name': 'Evaluation', 'data': [0.08395000000000039], 'color': '#2286de' }, { 'name': 'Monitoring', 'data': [0.06313333333333182], 'color': '#104469' }, { 'name': 'BLANK', 'data': [0.12701666666666872], 'color': '#ebebeb' }, { 'name': 'Orientation', 'data': [0.4053000000000001], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [9.69873333333333], 'color': '#ebebeb' }, { 'name': 'Monitoring', 'data': [1.259599999999999], 'color': '#104469' }, { 'name': 'Orientation', 'data': [1.7104833333333327], 'color': '#175a91' }, { 'name': 'Monitoring', 'data': [0.0600999999999991], 'color': '#104469' }, { 'name': 'Orientation', 'data': [0.09524999999999874], 'color': '#175a91' }, { 'name': 'BLANK', 'data': [1.66666666678086e-05], 'color': '#ebebeb' }]
         , m_perc:
@@ -103,7 +99,7 @@ export default {
 
     }),
     computed: {
-        chartOptionsYear: function () {
+        chartOptionsMeta: function () {
             return {
                 chart: {
                     events: {
@@ -128,9 +124,9 @@ export default {
                     width: 1,
                     colors: ['#fff']
                 },
-                // title: {
-                //     text: 'Fiction Books Sales'
-                // },
+                title: {
+                    text: 'Metacognition'
+                },
                 xaxis: {
                     categories: [""],
                     labels: {
@@ -144,7 +140,75 @@ export default {
                     labels: {
                         show: false,
                         formatter: function (val) {
-                            return (Math.round(val * 100) / 100).toFixed(2);
+                            return (Math.round(val * 100) / 100).toFixed(2) + " min";
+                        }
+                    }
+                },
+                tooltip: {
+                    x: {
+                        show: false
+                        // formatter: undefined,
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                legend: {
+                    show: false,
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    offsetX: 40
+                }
+            }
+        },
+        chartOptionsCog: function () {
+            return {
+                chart: {
+                    events: {
+                        dataPointMouseEnter: (e, chart, opts) => {
+                            // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
+                            this.testfunction(opts.w.config.series[opts.seriesIndex].name);
+                        }
+                    },
+                    type: 'bar',
+                    height: 250,
+                    stacked: true,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 1,
+                    colors: ['#fff']
+                },
+                title: {
+                    text: 'Cognition'
+                },
+                xaxis: {
+                    categories: [""],
+                    labels: {
+                        show: true
+                    }
+                },
+                tooltip: {
+                    x: {
+                        show: false
+                        // formatter: undefined,
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: undefined
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return (Math.round(val * 100) / 100).toFixed(2) + " min";
                         }
                     }
                 },
@@ -160,6 +224,5 @@ export default {
             }
         }
     }
-
 };
 </script>
