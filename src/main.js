@@ -25,11 +25,18 @@ const messages = {
       FIRSTREADING: 'Lezen valt onder cognitieve processen en weergeeft wanneer en hoe lang jij een tekst voor het eerste hebt gelezen.',
       REREADING: 'Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.',
       WRITEESSAY: 'Schrijven toont wanneer en hoe lang jij aan het schrijven was. ',
+      OTHER: "BLANK: Geen informatie."
     },
     Voorbeeld_reflectievragen: {
       value: 'Wat val je op als je naar jouw tijdlijn kijkt? Welke processen komen meer of minder voor en wanneer komen ze voor? Heeft deze aanpak jou wel of niet geholpen bij het schrijven van je essay? Waarom wel of niet? Wat zou je een volgende keer anders doen en waarom denkt je dat dit je zou helpen? ',
       titel: "Uitleg"
     },
+    Spider :{
+      titel: "Behaalde Leer Winst",
+      pre: "Voor Meting: ",
+      post: "Na Meting: ",
+      lw: "Leer Winst: "
+    }
   },
   en:
   {
@@ -46,10 +53,17 @@ const messages = {
       FIRSTREADING: 'Reading is part of cognitive processes and reflects when and how long you first read a text.',
       REREADING: 'The cognitive rereading process reflects when and how long you have read a text again.',
       WRITEESSAY: 'Writing shows when and how long you were writing.',
+      OTHER: "BLANK: No information."
     },
     Voorbeeld_reflectievragen: {
       value: 'What do you notice when you look at your timeline? Which processes are more or less common and when do they occur? Did this approach help you or not in writing your essay? Why or not? What would you do differently next time and why do you think this would help you?',
       titel: "Explanation"
+    },
+    Spider :{
+      titel: "Learning Gain",
+      pre: "Before Test: ",
+      post: "After Test: ",
+      lw: "Learning Gain: "
     }
   }
 };
