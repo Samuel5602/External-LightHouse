@@ -591,68 +591,133 @@ export default {
       { name: "Elaboration/Organization", data: 0.006387000719332198 },
       { name: "First Reading", data: 0.0020710075669285698 },
     ],
-    pplg: [10, 12, 2],
+    pplg: [10, 12, 2]
   }),
-  computed: {
-    chartOptionsYear: function () {
-      return {
-        chart: {
-          events: {
-            dataPointMouseEnter: (e, chart, opts) => {
-              // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
-              this.testfunction(opts.w.config.series[opts.seriesIndex].name);
-            },
-          },
-          type: "bar",
-          height: 250,
-          stacked: true,
+    computed: {
+        chartOptionsMeta: function () {
+            return {
+                chart: {
+                    events: {
+                        dataPointMouseEnter: (e, chart, opts) => {
+                            // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
+                            this.testfunction(opts.w.config.series[opts.seriesIndex].name);
+                        }
+                    },
+                    type: 'bar',
+                    height: 250,
+                    stacked: true,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 1,
+                    colors: ['#fff']
+                },
+                title: {
+                    text: 'Metacognition'
+                },
+                xaxis: {
+                    categories: [""],
+                    labels: {
+                        show: true
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: undefined
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return (Math.round(val * 100) / 100).toFixed(2) + " min";
+                        }
+                    }
+                },
+                tooltip: {
+                    x: {
+                        show: false
+                        // formatter: undefined,
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                legend: {
+                    show: false,
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    offsetX: 40
+                }
+            }
         },
-        plotOptions: {
-          bar: {
-            horizontal: true,
-          },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        stroke: {
-          width: 1,
-          colors: ["#fff"],
-        },
-        // title: {
-        //     text: 'Fiction Books Sales'
-        // },
-        xaxis: {
-          categories: [""],
-          labels: {
-            show: true,
-          },
-        },
-        yaxis: {
-          title: {
-            text: undefined,
-          },
-          labels: {
-            show: false,
-            formatter: function (val) {
-              return (Math.round(val * 100) / 100).toFixed(2);
-            },
-          },
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-        fill: {
-          opacity: 1,
-        },
-        legend: {
-          show: false,
-          position: "top",
-          horizontalAlign: "left",
-          offsetX: 40,
-        },
-      };
-    },
-  },
+        chartOptionsCog: function () {
+            return {
+                chart: {
+                    events: {
+                        dataPointMouseEnter: (e, chart, opts) => {
+                            // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
+                            this.testfunction(opts.w.config.series[opts.seriesIndex].name);
+                        }
+                    },
+                    type: 'bar',
+                    height: 250,
+                    stacked: true,
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 1,
+                    colors: ['#fff']
+                },
+                title: {
+                    text: 'Cognition'
+                },
+                xaxis: {
+                    categories: [""],
+                    labels: {
+                        show: true
+                    }
+                },
+                tooltip: {
+                    x: {
+                        show: false
+                        // formatter: undefined,
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: undefined
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return (Math.round(val * 100) / 100).toFixed(2) + " min";
+                        }
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                legend: {
+                    show: false,
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    offsetX: 40
+                }
+            }
+        }
+    }
 };
 </script>
