@@ -17,11 +17,6 @@
                             consectetur ultricies. Aliquam at quam aliquet, l</v-card-text>
                     </v-card>
                 </v-row>
-                <v-row>
-                    <v-card>
-                        <v-card-title>Hover voor uitleg</v-card-title>
-                    </v-card>
-                </v-row>
             </v-col>
             <v-col cols="9">
                 <div id="chart">
