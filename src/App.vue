@@ -42,7 +42,6 @@ export default {
     StackedBarChartVue,
     ClusterPageVue
   },
-
   data() {
     return {
       tab: null,
