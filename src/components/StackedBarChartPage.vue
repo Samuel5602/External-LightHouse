@@ -82,7 +82,6 @@ export default {
       // `this` inside methods point to the Vue instance
       var temp = parameter.split(" ").join("").toUpperCase();
       this.uitleg = "EXPLANATIONS." + temp;
-      console.log(temp);
       // `event` is the native DOM event
     },
   },

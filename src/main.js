@@ -4,11 +4,14 @@ import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import underscore from 'vue-underscore';
 import VueI18n from 'vue-i18n'
+import GlobalServiceHandler from '@/globalServiceHandler';
 
 Vue.config.productionTip = false
 Vue.use(axios);
 Vue.use(underscore);
 Vue.use(VueI18n)
+
+Vue.prototype.$serviceHandler = new GlobalServiceHandler();
 
 const messages = {
   nl: {

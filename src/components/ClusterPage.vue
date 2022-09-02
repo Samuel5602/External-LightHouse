@@ -27,7 +27,7 @@ export default {
     },
     created() {
         const fetchData = async () => {
-            const { data: clusterBoxOptions } = await axios.get('http://localhost:5000/feature');
+            const { data: clusterBoxOptions } = await axios.get(this.$serviceHandler.url);
             this.clusterBoxOptions = clusterBoxOptions.body.data;
         };
         fetchData();
