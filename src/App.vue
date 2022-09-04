@@ -3,7 +3,7 @@
     <v-card>
       <v-toolbar color="cyan" dark flat>
 
-        <v-toolbar-title>{{$t('DASHBOARD.titel')}}: X</v-toolbar-title>
+        <v-toolbar-title>{{$t('DASHBOARD.titel')}}: <input v-on:keyup.enter="setGlobalStudentNumber($event)"> </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-select v-model="$i18n.locale" v-bind:items="['en', 'nl']">
         </v-select>
@@ -17,7 +17,8 @@
           </v-tabs>
         </template>
       </v-toolbar>
-      <v-tabs-items v-model="tab">
+      
+      <v-tabs-items v-model="tab" v-if="numberEntered">
         <v-tab-item v-for="item in items" :key="item.tab">
           <v-card flat>
             <component v-bind:is="item.content"></component>
@@ -42,8 +43,19 @@ export default {
     StackedBarChartVue,
     ClusterPageVue
   },
+  methods: {
+    setGlobalStudentNumber(number){
+      console.log(number.target.value)
+      this.$serviceHandler.setStudentNumber(number);
+      this.studentNumber = number;
+      this.numberEntered = true;
+      console.log(this.numberEntered);
+    }
+
+  },
   data() {
     return {
+      numberEntered: false,
       tab: null,
       langs: ['en', 'nl'],
       items: [

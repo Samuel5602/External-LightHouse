@@ -32,7 +32,13 @@ const messages = {
       LEZEN: 'Lezen valt onder cognitieve processen en weergeeft wanneer en hoe lang jij een tekst voor het eerste hebt gelezen.',
       HERLEZEN: 'Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.',
       SCHRIJVEN: 'Schrijven toont wanneer en hoe lang jij aan het schrijven was. ',
-      OTHER: "BLANK: Geen informatie."
+      OTHER: "BLANK: Geen informatie.",
+    },
+    PERSONAL:{
+      part1 : "Je bent na ",
+      part2 : " minuten begonnen met ",
+      part3 : ". Je hebt in totaal ",
+      part4 : " minuten besteed aan "
     },
     Voorbeeld_reflectievragen: {
       value: 'Wat val je op als je naar jouw tijdlijn kijkt? Welke processen komen meer of minder voor en wanneer komen ze voor? Heeft deze aanpak jou wel of niet geholpen bij het schrijven van je essay? Waarom wel of niet? Wat zou je een volgende keer anders doen en waarom denkt je dat dit je zou helpen? ',
@@ -69,6 +75,12 @@ const messages = {
     Voorbeeld_reflectievragen: {
       value: 'What do you notice when you look at your timeline? Which processes are more or less common and when do they occur? Did this approach help you or not in writing your essay? Why or not? What would you do differently next time and why do you think this would help you?',
       titel: "Reflection"
+    },
+    PERSONAL:{
+      part1 : "After  ",
+      part2 : " minutes you started ",
+      part3 : ". In total you spent ",
+      part4 : " minutes on  "
     },
     Spider :{
       titel: "Learning Gain",

@@ -41,7 +41,7 @@ export default {
             pplg: [10, 12, 2],
             series: [{
                 name: 'Test Serie',
-                data: [60, 65, 60, 130, 75, 110],
+                data: [10, 12, 2],
             }],
             chartOptions: {
                 chart: {
@@ -51,9 +51,9 @@ export default {
                 // title: {
                 //     text: 'Basic Radar Chart'
                 // },
-                xaxis: {
-                    categories: ['HP', 'Attack', 'Defense', 'Sp.Atk', 'Sp.Def', 'Speed']
-                }
+                // xaxis: {
+                //     categories: ['HP', 'Attack', 'Defense']
+                // }
             },
         }
     }
