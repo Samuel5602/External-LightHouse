@@ -33,7 +33,7 @@
 <script>
 import SpiderGraphPageVue from './components/SpiderGraphPage.vue';
 import StackedBarChartVue from './components/StackedBarChartPage.vue';
-import ClusterPageVue from './components/ClusterPage.vue';
+// import ClusterPageVue from './components/ClusterPage.vue';
 
 export default {
   name: 'App',
@@ -41,7 +41,7 @@ export default {
   components: {
     SpiderGraphPageVue,
     StackedBarChartVue,
-    ClusterPageVue
+    // ClusterPageVue
   },
   methods: {
     setGlobalStudentNumber(number){
@@ -61,7 +61,7 @@ export default {
       items: [
         { tab: 'Timeline', content: 'StackedBarChartVue' },
         { tab: 'Results', content: 'SpiderGraphPageVue' },
-        { tab: 'Cluster', content: 'ClusterPageVue' }
+        // { tab: 'Cluster', content: 'ClusterPageVue' }
       ]
     }
   },

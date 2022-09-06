@@ -12,9 +12,9 @@
                     <v-card>
                         <v-card-title>{{$t("Spider.titel")}}</v-card-title>
                         <v-card-text>
-                            {{$t("Spider.pre")}}{{pplg[0]}} <br/>
-                            {{$t("Spider.post")}}{{pplg[1]}} <br/>
-                            {{$t("Spider.lw")}}{{pplg[2]}} 
+                            {{$t("Spider.pre")}}{{pplg[0]}}/15 <br />
+                            {{$t("Spider.post")}}{{pplg[1]}}/15 <br />
+                            {{$t("Spider.lw")}}{{pplg[2]}}
                         </v-card-text>
                     </v-card>
                 </v-row>
@@ -48,6 +48,21 @@ export default {
                     height: 350,
                     type: 'radar',
                 },
+                yaxis: {
+                    labels: {
+                        show: false,
+                    }
+                },
+                xaxis: {
+                    labels: {
+                        show: false,
+                    }
+                },
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                }
                 // title: {
                 //     text: 'Basic Radar Chart'
                 // },
