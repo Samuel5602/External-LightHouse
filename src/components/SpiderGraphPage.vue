@@ -48,20 +48,13 @@ export default {
                     height: 350,
                     type: 'radar',
                 },
-                yaxis: {
-                    labels: {
-                        show: false,
-                    }
-                },
                 xaxis: {
                     labels: {
                         show: false,
                     }
                 },
-                scale: {
-                    ticks: {
-                        display: false
-                    }
+                tooltip: {
+                    enabled: false,
                 }
                 // title: {
                 //     text: 'Basic Radar Chart'
