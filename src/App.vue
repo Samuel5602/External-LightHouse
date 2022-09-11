@@ -57,27 +57,25 @@ export default {
   },
   methods: {
     setGlobalStudentNumber(number) {
-      console.log(number.target.value);
-      console.log(number);
+      // console.log(number.target.value);
+      // console.log(number);
       this.$serviceHandler.setStudentNumber(number.target.value);
       axios({
-          method:"get", 
-          url: this.$serviceHandler.url + "result",
-          data: {
-            studentNumber: number.target.value
-          },
-          params: {
-            studentNumber: number.target.value
-          }
-        }).then((res) => {
-          this.$serviceHandler.setData(res.data.body);
-          this.dataLoaded = true;
+        method: "get",
+        url: this.$serviceHandler.url + "result",
+        params: {
+          studentNumber: number.target.value,
+        },
+      }).then((res) => {
+        this.$serviceHandler.setData(res.data.body);
+        this.dataLoaded = true;
       });
       this.studentNumber = number.target.value;
       this.numberEntered = true;
       // console.log(this.numberEntered);
     },
   },
+
   created() {},
   data() {
     return {
