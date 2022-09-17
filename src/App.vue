@@ -13,7 +13,7 @@
         <template v-slot:extension>
           <v-tabs v-model="tab" align-with-title>
             <v-tabs-slider color="yellow"></v-tabs-slider>
-            <v-tab v-for="item in items" :key="item.tab">
+            <v-tab v-for="item in translateItems.items" :key="item.tab">
               {{ item.tab }}
             </v-tab>
           </v-tabs>
@@ -22,7 +22,7 @@
 
       <!-- <div v-if="numberEntered"> -->
       <v-tabs-items v-model="tab" v-if="dataLoaded && numberEntered">
-        <v-tab-item v-for="item in items" :key="item.tab">
+        <v-tab-item v-for="item in translateItems.items" :key="item.tab">
           <v-card flat>
             <component v-bind:is="item.content"></component>
           </v-card>
@@ -59,35 +59,41 @@ export default {
     setGlobalStudentNumber(number) {
       // console.log(number.target.value);
       // console.log(number);
-      this.$serviceHandler.setStudentNumber(number.target.value);
+      var strippedNum = parseInt(number.target.value.replace(/\D/g, ""));
+      this.$serviceHandler.setStudentNumber(strippedNum);
       axios({
         method: "get",
         url: this.$serviceHandler.url + "result",
         params: {
-          studentNumber: number.target.value,
+          studentNumber: strippedNum,
         },
       }).then((res) => {
         this.$serviceHandler.setData(res.data.body);
         this.dataLoaded = true;
       });
-      this.studentNumber = number.target.value;
+      this.studentNumber = strippedNum;
       this.numberEntered = true;
-      // console.log(this.numberEntered);
     },
   },
-
-  created() {},
+  computed: {
+    translateItems: function () {
+      return {
+        items: [
+          { tab: this.$t("MAIN.timeline"), content: "StackedBarChartVue" },
+          { tab: this.$t("MAIN.results"), content: "SpiderGraphPageVue" },
+          // { tab: 'Cluster', content: 'ClusterPageVue' }
+        ],
+      };
+    },
+  },
   data() {
     return {
       dataLoaded: false,
       numberEntered: false,
       tab: null,
       langs: ["en", "nl"],
-      items: [
-        { tab: "Tijdlijn", content: "StackedBarChartVue" },
-        { tab: "Resultaten", content: "SpiderGraphPageVue" },
-        // { tab: 'Cluster', content: 'ClusterPageVue' }
-      ],
+      tempt: "",
+      tempr: "",
     };
   },
   watch: {},

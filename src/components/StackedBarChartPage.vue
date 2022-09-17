@@ -26,7 +26,7 @@
           <v-card-title>{{ $t("EXPLANATIONS.titel") }}</v-card-title>
           <v-card-text>
             {{ $t(uitleg) }} <br />
-            <div v-if="hoverName !== 'Niet Gedetecteerd'">
+            <div v-if="hoverName !== 'Niet Gedetecteerd' && hoverName !== 'EMPTY' && hoverName !== '' ">
               {{
                 $t("PERSONAL.part1") +
                 Math.round(personal[personalStart]).toFixed(1) +
@@ -46,11 +46,11 @@
         <v-card>
           <v-card-title>{{ $t("PERCENTAGES.cog_titel") }}</v-card-title>
           <v-card-text>
-            <v-list disabled>
+            <v-list flat>
               <v-list-item-group v-model="c_perc" color="primary">
                 <v-list-item v-for="(item, i) in c_perc" :key="i">
                   <v-list-item-content>
-                    <v-list-item>
+                    <v-list-item v-on:mouseover="translateHover(item.name)">
                       {{ item.name }} :
                       {{ Math.round(item.data * 100).toFixed(0) }}%
                     </v-list-item>
@@ -65,11 +65,11 @@
         <v-card>
           <v-card-title>{{ $t("PERCENTAGES.meta_titel") }}</v-card-title>
           <v-card-text>
-            <v-list disabled>
+            <v-list flat>
               <v-list-item-group v-model="m_perc" color="primary">
                 <v-list-item v-for="(item, i) in m_perc" :key="i">
                   <v-list-item-content>
-                    <v-list-item>
+                    <v-list-item v-on:mouseover="translateHover(item.name)">
                       {{ item.name }} :
                       {{ Math.round(item.data * 100).toFixed(0) }}%
                     </v-list-item>
@@ -82,7 +82,7 @@
       </v-col>
       <v-col md="2">
         <v-card>
-          <v-card-title>Other</v-card-title>
+          <v-card-title>{{ $t("PERCENTAGES.other") }}</v-card-title>
           <v-card-text>{{ $t("EXPLANATIONS.OTHER") }}</v-card-text>
         </v-card>
       </v-col>
@@ -107,9 +107,12 @@ export default {
     apexchart: VueApexCharts,
   },
   methods: {
-    // poggers
+    mouseHover(parameter){
+      console.log(parameter);
+    },
     translateHover(parameter) {
       // `this` inside methods point to the Vue instance
+      // console.log(this.$t("EXPLANATIONS.EMPTY"));
       var temp = parameter.split(" ").join("").toUpperCase();
       this.uitleg = "EXPLANATIONS." + temp;
       this.hoverName = parameter;
@@ -119,7 +122,7 @@ export default {
     },
   },
   data: () => ({
-    uitleg: "",
+    uitleg: "EXPLANATIONS.EMPTY",
     hoverName: "",
     personalMins: null,
     personalStart: null,
@@ -147,6 +150,9 @@ export default {
               this.translateHover(opts.w.config.series[opts.seriesIndex].name);
               console.log(opts);
             },
+            mouseLeave: () => {
+              this.translateHover("EMPTY");
+            },
           },
           type: "bar",
           height: 250,
@@ -165,7 +171,7 @@ export default {
           colors: ["#fff"],
         },
         title: {
-          text: "Metacognitie",
+          text: this.$t("PERCENTAGES.meta_titel"),
         },
         xaxis: {
           categories: [""],
@@ -209,6 +215,9 @@ export default {
               // you can call Vue methods now as "this" will point to the Vue instance when you use ES6 arrow function
               this.translateHover(opts.w.config.series[opts.seriesIndex].name);
             },
+            mouseLeave: () => {
+              this.translateHover("EMPTY");
+            },
           },
           type: "bar",
           height: 250,
@@ -227,7 +236,7 @@ export default {
           colors: ["#fff"],
         },
         title: {
-          text: "Cognitie",
+          text: this.$t("PERCENTAGES.cog_titel"),
         },
         xaxis: {
           categories: [""],

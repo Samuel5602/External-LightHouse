@@ -12,8 +12,8 @@
           <v-card>
             <v-card-title>{{ $t("Spider.titel") }}</v-card-title>
             <v-card-text>
-              {{ $t("Spider.pre") }}{{ pplg[0] }}/15 <br />
-              {{ $t("Spider.post") }}{{ pplg[1] }}/15 <br />
+              {{ $t("Spider.pre") }}{{ pplg[0] }} <br />
+              {{ $t("Spider.post") }}{{ pplg[1] }} <br />
               {{ $t("Spider.lw") }}{{ pplg[2] }}
             </v-card-text>
           </v-card>
@@ -23,7 +23,7 @@
         <div id="chart">
           <apexchart
             type="radar"
-            height="350"
+            height="500"
             :options="chartOptions"
             :series="series"
           ></apexchart>
@@ -46,22 +46,15 @@ export default {
     this.pplg = data.pplg;
     this.series[0].data = data.spiderData;
   },
-  data() {
-    return {
-      pplg: null,
-      series: [
-        {
-          name: "Test Serie",
-          data: null,
-        },
-      ],
-      chartOptions: {
+  computed: {
+    chartOptions: function () {
+      return {
         chart: {
-          height: 350,
+          height: 500,
           type: "radar",
         },
         xaxis: {
-            categories: ["Semantische Kruising", "Gemiddelde Cohesie", "Aantal Woorden"]
+            categories: [this.$t("Spider.sc"), this.$t("Spider.gc"), this.$t("Spider.aw")]
           },
         yaxis: {
           show: false,
@@ -72,7 +65,18 @@ export default {
         tooltip: {
           enabled: false,
         },
-      },
+      }
+    }
+  },
+  data() {
+    return {
+      pplg: null,
+      series: [
+        {
+          name: "Test Serie",
+          data: null,
+        },
+      ],
     };
   },
 };

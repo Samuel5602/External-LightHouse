@@ -1,6 +1,6 @@
 export default class GlobalServiceHandler {
 
-    url = 'http://localhost:5000/'
+    url = 'http://18.198.246.61/'
     #data
     #studentNumber
 

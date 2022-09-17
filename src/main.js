@@ -15,12 +15,18 @@ Vue.prototype.$serviceHandler = new GlobalServiceHandler();
 
 const messages = {
   nl: {
-    PERCENTAGES:{
-      meta_titel: "Metacognitie",
-      cog_titel: "Cognitie"
+    MAIN: {
+      timeline: "Tijdlijn",
+      results: "Resultaten"
     },
-    DASHBOARD:{
-      titel: "Dashboard voor user"
+    PERCENTAGES: {
+      meta_titel: "Metacognitie",
+      cog_titel: "Cognitie",
+      other: "Overige",
+    },
+    DASHBOARD: {
+      titel: "Dashboard voor user",
+
     },
     EXPLANATIONS: {
       titel: 'Hover voor uitleg',
@@ -32,32 +38,41 @@ const messages = {
       LEZEN: 'Lezen valt onder cognitieve processen en weergeeft wanneer en hoe lang jij een tekst voor het eerste hebt gelezen.',
       HERLEZEN: 'Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.',
       SCHRIJVEN: 'Schrijven toont wanneer en hoe lang jij aan het schrijven was. ',
-      OTHER: "BLANK: Geen informatie.",
+      OTHER: "Niet gedetecteerd: geen matacognitieve en/of cognitieve processen gedetecteerd.",
+      EMPTY: "Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve en metacognitieve processen. De cobinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert."
     },
-    PERSONAL:{
-      part1 : "Je bent na ",
-      part2 : " minuten begonnen met ",
-      part3 : ". Je hebt in totaal ",
-      part4 : " minuten besteed aan "
+    PERSONAL: {
+      part1: "Je bent na ",
+      part2: " minuten begonnen met ",
+      part3: ". Je hebt in totaal ",
+      part4: " minuten besteed aan "
     },
     Voorbeeld_reflectievragen: {
       value: 'Wat val je op als je naar jouw tijdlijn kijkt? Welke processen komen meer of minder voor en wanneer komen ze voor? Heeft deze aanpak jou wel of niet geholpen bij het schrijven van je essay? Waarom wel of niet? Wat zou je een volgende keer anders doen en waarom denkt je dat dit je zou helpen? ',
       titel: "Reflectie"
     },
-    Spider :{
+    Spider: {
       titel: "Behaalde Leer Winst",
-      pre: "Voor Meting: ",
-      post: "Na Meting: ",
-      lw: "Leer Winst: "
+      pre: "Voortoets: ",
+      post: "Natoets: ",
+      lw: "Leer Winst: ",
+      sc: "Semantische Kruising",
+      aw: "Aantal Woorden",
+      gc: "Gemiddelde Cohesie"
     }
   },
   en:
   {
-    PERCENTAGES:{
-      meta_titel: "Metacognition",
-      cog_titel: "Cognition"
+    MAIN: {
+      timeline: "Timeline",
+      results: "Results"
     },
-    DASHBOARD:{
+    PERCENTAGES: {
+      meta_titel: "Metacognition",
+      cog_titel: "Cognition",
+      other: "Other",
+    },
+    DASHBOARD: {
       titel: "Dashboard for user"
     },
     EXPLANATIONS: {
@@ -70,23 +85,27 @@ const messages = {
       LEZEN: 'Reading is part of cognitive processes and reflects when and how long you first read a text.',
       HERLEZEN: 'The cognitive rereading process reflects when and how long you have read a text again.',
       SCHRIJVEN: 'Writing shows when and how long you were writing.',
-      OTHER: "BLANK: No information."
+      OTHER: "Not detected: no metacognition and/or cognition processes detected.",
+      EMPTY: "Whilst writing an essay you perfrom activities related to cognitive and metacognitive processes. The combination of these activities determine you learning strategy. A learning strategy is the way that you approach and execute a task."
     },
     Voorbeeld_reflectievragen: {
       value: 'What do you notice when you look at your timeline? Which processes are more or less common and when do they occur? Did this approach help you or not in writing your essay? Why or not? What would you do differently next time and why do you think this would help you?',
       titel: "Reflection"
     },
-    PERSONAL:{
-      part1 : "After  ",
-      part2 : " minutes you started ",
-      part3 : ". In total you spent ",
-      part4 : " minutes on  "
+    PERSONAL: {
+      part1: "After  ",
+      part2: " minutes you started ",
+      part3: ". In total you spent ",
+      part4: " minutes on  "
     },
-    Spider :{
+    Spider: {
       titel: "Learning Gain",
       pre: "Before Test: ",
       post: "After Test: ",
-      lw: "Learning Gain: "
+      lw: "Learning Gain: ",
+      sc: "Semantic Crossover",
+      aw: "Amount of Words",
+      gc: "Average Cohesion"
     }
   }
 };
