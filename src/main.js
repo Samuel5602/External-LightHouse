@@ -53,8 +53,8 @@ const messages = {
     },
     Spider: {
       titel: "Behaalde Leer Winst",
-      pre: "Voortoets: ",
-      post: "Natoets: ",
+      pre: "Voor toets: ",
+      post: "Na toets: ",
       lw: "Leer Winst: ",
       sc: "Semantische Kruising",
       aw: "Aantal Woorden",

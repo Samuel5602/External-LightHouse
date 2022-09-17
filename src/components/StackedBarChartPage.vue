@@ -150,7 +150,7 @@ export default {
               this.translateHover(opts.w.config.series[opts.seriesIndex].name);
               console.log(opts);
             },
-            mouseLeave: () => {
+            dataPointMouseLeave: () => {
               this.translateHover("EMPTY");
             },
           },
