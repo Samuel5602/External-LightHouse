@@ -104,11 +104,6 @@ export default {
     },
   },
   data: () => ({
-    items: [
-      { text: 'Real-Time', icon: 'mdi-clock' },
-      { text: 'Audience', icon: 'mdi-account' },
-      { text: 'Conversions', icon: 'mdi-flag' },
-    ],
     uitleg: "EXPLANATIONS.EMPTY",
     hoverName: "",
     personalMins: null,
