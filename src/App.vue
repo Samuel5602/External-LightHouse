@@ -57,6 +57,12 @@ export default {
   },
   methods: {
     translate(){
+      // if(this.$i18n.locale === "en"){
+      //     console.log("Lizzie in a box")
+      // }
+      // if(this.$i18n.locale === "nl"){
+      //     console.log("willempie")
+      // }
       // let data = this.$serviceHandler.getData()
       // let myJSON = JSON.stringify(data);
       // myJSON.replaceAll('dog', 'monkey')
