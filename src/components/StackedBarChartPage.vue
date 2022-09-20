@@ -68,12 +68,6 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <!-- <v-col md="2">
-        <v-card>
-          <v-card-title>{{ $t("PERCENTAGES.other") }}</v-card-title>
-          <v-card-text>{{ $t("EXPLANATIONS.OTHER") }}</v-card-text>
-        </v-card>
-      </v-col> -->
       <v-col md="4">
         <v-card>
           <v-card-title>{{
