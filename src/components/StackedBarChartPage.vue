@@ -3,51 +3,41 @@
     <v-layout row>
       <v-col>
         <div id="chart">
-          <apexchart
-            type="bar"
-            height="250"
-            :options="chartOptionsMeta"
-            :series="meta"
-          ></apexchart>
+          <apexchart type="bar" height="250" :options="chartOptionsMeta" :series="meta"></apexchart>
         </div>
         <div id="chart">
-          <apexchart
-            type="bar"
-            height="250"
-            :options="chartOptionsCog"
-            :series="cog"
-          ></apexchart>
+          <apexchart type="bar" height="250" :options="chartOptionsCog" :series="cog"></apexchart>
         </div>
       </v-col>
     </v-layout>
     <v-row align="stretch" no-gutters>
-      <v-col md="2">
+      <v-col md="4">
         <v-card>
           <v-card-title>{{ $t("EXPLANATIONS.titel") }}</v-card-title>
           <v-card-text>
             {{ $t(uitleg) }} <br />
             <div v-if="hoverName !== 'Niet Gedetecteerd' && hoverName !== 'EMPTY' && hoverName !== '' ">
               {{
-                $t("PERSONAL.part1") +
-                Math.round(personal[personalStart]).toFixed(1) +
-                $t("PERSONAL.part2") +
-                hoverName +
-                $t("PERSONAL.part3") +
-                Math.round(personal[personalMins]).toFixed(1) +
-                $t("PERSONAL.part4") +
-                hoverName +
-                "."
+              $t("PERSONAL.part1") +
+              Math.round(personal[personalStart]).toFixed(1) +
+              $t("PERSONAL.part2") +
+              hoverName +
+              $t("PERSONAL.part3") +
+              Math.round(personal[personalMins]).toFixed(1) +
+              $t("PERSONAL.part4") +
+              hoverName +
+              "."
               }}
             </div>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col md="3">
+      <v-col md="2">
         <v-card>
           <v-card-title>{{ $t("PERCENTAGES.cog_titel") }}</v-card-title>
           <v-card-text>
             <v-list flat>
-              <v-list-item-group v-model="c_perc" color="primary">
+              <v-list-item-group color="primary">
                 <v-list-item v-for="(item, i) in c_perc" :key="i">
                   <v-list-item-content>
                     <v-list-item v-on:mouseover="translateHover(item.name)">
@@ -66,13 +56,11 @@
           <v-card-title>{{ $t("PERCENTAGES.meta_titel") }}</v-card-title>
           <v-card-text>
             <v-list flat>
-              <v-list-item-group v-model="m_perc" color="primary">
+              <v-list-item-group color="primary">
                 <v-list-item v-for="(item, i) in m_perc" :key="i">
-                  <v-list-item-content>
-                    <v-list-item v-on:mouseover="translateHover(item.name)">
-                      {{ item.name }} :
-                      {{ Math.round(item.data * 100).toFixed(0) }}%
-                    </v-list-item>
+                  <v-list-item-content v-on:mouseover="translateHover(item.name)">
+                    {{ item.name }} :
+                    {{ Math.round(item.data * 100).toFixed(0) }}%
                   </v-list-item-content>
                 </v-list-item>
               </v-list-item-group>
@@ -80,16 +68,16 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col md="2">
+      <!-- <v-col md="2">
         <v-card>
           <v-card-title>{{ $t("PERCENTAGES.other") }}</v-card-title>
           <v-card-text>{{ $t("EXPLANATIONS.OTHER") }}</v-card-text>
         </v-card>
-      </v-col>
-      <v-col md="3">
+      </v-col> -->
+      <v-col md="4">
         <v-card>
           <v-card-title>{{
-            $t("Voorbeeld_reflectievragen.titel")
+          $t("Voorbeeld_reflectievragen.titel")
           }}</v-card-title>
           <v-card-text>{{ $t("Voorbeeld_reflectievragen.value") }}</v-card-text>
         </v-card>
@@ -107,7 +95,7 @@ export default {
     apexchart: VueApexCharts,
   },
   methods: {
-    mouseHover(parameter){
+    mouseHover(parameter) {
       console.log(parameter);
     },
     translateHover(parameter) {
@@ -122,6 +110,11 @@ export default {
     },
   },
   data: () => ({
+    items: [
+      { text: 'Real-Time', icon: 'mdi-clock' },
+      { text: 'Audience', icon: 'mdi-account' },
+      { text: 'Conversions', icon: 'mdi-flag' },
+    ],
     uitleg: "EXPLANATIONS.EMPTY",
     hoverName: "",
     personalMins: null,
