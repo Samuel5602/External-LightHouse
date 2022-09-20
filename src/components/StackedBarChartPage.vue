@@ -13,10 +13,16 @@
     <v-row align="stretch" no-gutters>
       <v-col md="4">
         <v-card>
-          <v-card-title>{{ $t("EXPLANATIONS.titel") }}</v-card-title>
+          <v-card-title>{{ $t(this.hoverTitle) }}</v-card-title>
           <v-card-text>
             {{ $t(uitleg) }} <br />
-            <div v-if="hoverName !== 'Niet Gedetecteerd' && hoverName !== 'EMPTY' && hoverName !== '' ">
+            <div
+              v-if="
+                hoverName !== 'Niet Gedetecteerd' &&
+                hoverName !== 'EMPTY' &&
+                hoverName !== ''
+              "
+            >
               {{
               $t("PERSONAL.part1") +
               Math.round(personal[personalStart]).toFixed(1) +
@@ -73,7 +79,12 @@
           <v-card-title>{{
           $t("Voorbeeld_reflectievragen.titel")
           }}</v-card-title>
-          <v-card-text>{{ $t("Voorbeeld_reflectievragen.value") }}</v-card-text>
+          <v-card-text
+            >{{ $t("Voorbeeld_reflectievragen.value1") }} <br /><br />
+            {{ $t("Voorbeeld_reflectievragen.value2") }} <br /><br />
+            {{ $t("Voorbeeld_reflectievragen.value3") }} <br /><br />
+            {{ $t("Voorbeeld_reflectievragen.value4") }}
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -94,6 +105,7 @@ export default {
       // console.log(this.$t("EXPLANATIONS.EMPTY"));
       var temp = parameter.split(" ").join("").toUpperCase();
       this.uitleg = "EXPLANATIONS." + temp;
+      this.hoverTitle = "EXP_TITLE." + temp;
       this.hoverName = parameter;
       this.personalMins = parameter + "Mins";
       this.personalStart = parameter + "Start";
@@ -102,6 +114,7 @@ export default {
   },
   data: () => ({
     uitleg: "EXPLANATIONS.EMPTY",
+    hoverTitle: "EXP_TITLE.EMPTY",
     hoverName: "",
     personalMins: null,
     personalStart: null,
