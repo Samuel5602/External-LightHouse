@@ -89,9 +89,6 @@ export default {
     apexchart: VueApexCharts,
   },
   methods: {
-    mouseHover(parameter) {
-      console.log(parameter);
-    },
     translateHover(parameter) {
       // `this` inside methods point to the Vue instance
       // console.log(this.$t("EXPLANATIONS.EMPTY"));
