@@ -7,7 +7,7 @@
           <input v-on:keyup.enter="setGlobalStudentNumber($event)" />
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-select v-model="$i18n.locale" v-bind:items="['en', 'nl']">
+        <v-select v-on:change="translate" v-model="$i18n.locale" v-bind:items="['en', 'nl']">
         </v-select>
 
         <template v-slot:extension>
@@ -56,6 +56,11 @@ export default {
     // ClusterPageVue
   },
   methods: {
+    translate(){
+      // let data = this.$serviceHandler.getData()
+      // let myJSON = JSON.stringify(data);
+      // myJSON.replaceAll('dog', 'monkey')
+    },
     setGlobalStudentNumber(number) {
       // console.log(number.target.value);
       // console.log(number);

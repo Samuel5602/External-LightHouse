@@ -172,7 +172,9 @@ export default {
         tooltip: {
           x: {
             show: false,
-            // formatter: undefined,
+            // formatter: function () {
+            //   return "Test"
+            // },
           },
         },
         fill: {
