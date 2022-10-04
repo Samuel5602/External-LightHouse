@@ -41,8 +41,13 @@ export default {
   components: {
     apexchart: VueApexCharts,
   },
+  methods: {
+  test() {
+        console.log("spider")
+      }
+  },
   created() {
-    let data = this.$serviceHandler.getData();
+    let data = this.$serviceHandler.getData(this.$t("LANG.status"));
     this.pplg = data.pplg;
     this.series[0].data = data.spiderData;
   },

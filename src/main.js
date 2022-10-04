@@ -6,15 +6,23 @@ import underscore from 'vue-underscore';
 import VueI18n from 'vue-i18n'
 import GlobalServiceHandler from '@/globalServiceHandler';
 
+// standard vue using
 Vue.config.productionTip = false
 Vue.use(axios);
 Vue.use(underscore);
 Vue.use(VueI18n)
 
+// this handles global variables such as the data of the students
+// (we didnt use vuex because we didnt have time)
 Vue.prototype.$serviceHandler = new GlobalServiceHandler();
 
+// the translations for all of the texts found on the dashboard
+// read vue i18n for more
 const messages = {
   nl: {
+    LANG: {
+      status: "NL",
+    },
     MAIN: {
       timeline: "Tijdlijn",
       results: "Resultaten"
@@ -39,7 +47,15 @@ const messages = {
       HERLEZEN: 'Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.',
       SCHRIJVEN: 'Schrijven toont wanneer en hoe lang jij aan het schrijven was.',
       OTHER: "Niet gedetecteerd: geen matacognitieve en/of cognitieve processen gedetecteerd.",
-      EMPTY: "Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen. De combinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert."
+      EMPTY: "Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen. De combinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert.",  
+      NOTDETECTED: 'Er is geen proces gedetecteerd. Dit betekent niet dat je niks hebt gedaan. Het gedrag kon enkel niet gedetecteerd worden als een cognitief en/of metacognitief proces.',
+      ORIENTATION: 'Oriëntatie is het verkennen van de leeromgeving en het activeren van voorkennis. Voorbeelden van oriënterende activiteiten bij het schrijven van een essay zijn: inhoud scannen van een leeromgeving, bepalen van leerdoelen en de rubriek bekijken.',
+      PLANNING: 'Plannen heeft betrekking op activiteiten die jouw voorbereiding op het uitvoeren van de taak. Het gaat over het bepalen en plannen van activiteiten die nodig zijn om jouw leerdoel te behalen.',
+      MONITORING: 'Monitoren betreft het controleren van jouw leerproces en het controleren van jouw geplande leerstrategie. Ben ik nog steeds aan het leren op de manier, zoals ik van te voren bedacht heb? Voorbeelden van monitoringsactiviteiten zijn: annotaties en notities gebruiken, je planning controleren en de timer bekijken.',
+      EVALUATION: 'Evaluatie is het beoordelen van inhoudelijke informatie. In hoeverre is de tekst die je leest relevant voor het essay? Ben je aan het lezen wat nodig is volgens de instructie? Is de informatie die je leest inhoudelijk correct? Dit oordeel kan leiden tot het aanpassen van je leerstrategie.',
+      READING: 'Lezen valt onder cognitieve processen en weergeeft wanneer en hoe lang jij een tekst voor het eerste hebt gelezen.',
+      REREADING: 'Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.',
+      WRITING: 'Schrijven toont wanneer en hoe lang jij aan het schrijven was.',
     },
     EXP_TITLE: {
       titel: 'Hover voor uitleg',
@@ -51,6 +67,14 @@ const messages = {
       LEZEN: 'Lezen',
       HERLEZEN: 'Herlezen',
       SCHRIJVEN: 'Schrijven',
+      NOTDETECTED: 'Geen Proces Gedetecteerd',
+      ORIENTATION: 'Oriëntatie',
+      PLANNING: 'Plannen',
+      MONITORING: 'Monitoren',
+      EVALUATION: 'Evaluatie',
+      READING: 'Lezen',
+      REREADING: 'Herlezen',
+      WRITING: 'Schrijven',
       EMPTY: "Hover voor uitleg"
     },
     PERSONAL: {
@@ -78,6 +102,9 @@ const messages = {
   },
   en:
   {
+    LANG: {
+      status: "EN",
+    },
     MAIN: {
       timeline: "Timeline",
       results: "Results"
@@ -101,8 +128,17 @@ const messages = {
       HERLEZEN: 'The cognitive rereading process reflects when and how long you have read a text again.',
       SCHRIJVEN: 'Writing shows when and how long you were writing.',
       OTHER: "Not detected: no metacognition and/or cognition processes detected.",
-      EMPTY: "While writing an essay, you make use of cognitive- and metacognitive activities. The combination of these activities defines your learning strategy. Learning strategy refers to how you approach and carry out a learning task."
+      EMPTY: "While writing an essay, you make use of cognitive- and metacognitive activities. The combination of these activities defines your learning strategy. Learning strategy refers to how you approach and carry out a learning task.",
+      NOTDETECTED: 'No cognitive process has been detected. This does not mean you have done nothing. The action you performed could not be detected as a cognitive and/or metacognitive process.',
+      ORIENTATION: 'Orientation is exploring the learning environment and activating prior knowledge. Examples of orientation activities during essay writing are: scanning the content of the learning environment, determining the learning goals, and looking at the rubric.',
+      PLANNING: 'Planning prepares you to execute the actual task. It is about planning time and planning activities, that enables you to reach your learning goals.',
+      MONITORING: 'Monitoring encompasses checking your learning process and controlling the execution of your planned strategies to pursue your learning goals. Am I still learning in the way I intended to learn? Examples of monitoring activities for writing the essay are: using annotations and notes, checking your planning, and checking the timer.',
+      EVALUATION: 'Evaluation is reviewing content information. To what extent is the text you are reading relevant to the essay? Are you reading what is required by the instruction? Is the information you read substantively correct? This evaluation can lead to adjusting your learning strategy.',
+      READING: 'Reading is part of cognitive processes and reflects when and how long you first read a text.',
+      REREADING: 'The cognitive rereading process reflects when and how long you have read a text again.',
+      WRITING: 'Writing shows when and how long you were writing.',
     },
+
     EXP_TITLE: {
       titel: 'Hover for explanation',
       NIETGEDETECTEERD: 'Not detected',
@@ -114,7 +150,15 @@ const messages = {
       HERLEZEN: 'Rereading',
       SCHRIJVEN: 'Writing',
       OTHER: "Not detected",
-      EMPTY: "Hover for explanation"
+      EMPTY: "Hover for explanation",
+      NOTDETECTED: 'Not detected',
+      ORIENTATION: 'Orientation',
+      PLANNING: 'Planning',
+      MONITORING: 'Monitoring',
+      EVALUATION: 'Evaluation',
+      READING: 'Reading',
+      REREADING: 'Rereading',
+      WRITING: 'Writing',
     },
     Voorbeeld_reflectievragen: {
       value1: 'What do you notice when you look at your timeline?',

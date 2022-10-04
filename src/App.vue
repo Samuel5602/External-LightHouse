@@ -7,7 +7,11 @@
           <input v-on:keyup.enter="setGlobalStudentNumber($event)" />
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-select v-on:change="translate" v-model="$i18n.locale" v-bind:items="['en', 'nl']">
+        <v-select
+          v-on:change="translate"
+          v-model="$i18n.locale"
+          v-bind:items="['en', 'nl']"
+        >
         </v-select>
 
         <template v-slot:extension>
@@ -20,11 +24,10 @@
         </template>
       </v-toolbar>
 
-      <!-- <div v-if="numberEntered"> -->
       <v-tabs-items v-model="tab" v-if="dataLoaded && numberEntered">
         <v-tab-item v-for="item in translateItems.items" :key="item.tab">
           <v-card flat>
-            <component v-bind:is="item.content"></component>
+            <component v-bind:is="item.content" ref="componentU"></component>
           </v-card>
         </v-tab-item>
       </v-tabs-items>
@@ -36,7 +39,6 @@
           indeterminate
         ></v-progress-circular>
       </div>
-      <!-- </div> -->
     </v-card>
   </v-app>
 </template>
@@ -56,36 +58,29 @@ export default {
     // ClusterPageVue
   },
   methods: {
-    translate(){
-      // if(this.$i18n.locale === "en"){
-      //     console.log("Lizzie in a box")
-      // }
-      // if(this.$i18n.locale === "nl"){
-      //     console.log("willempie")
-      // }
-      // let data = this.$serviceHandler.getData()
-      // let myJSON = JSON.stringify(data);
-      // myJSON.replaceAll('dog', 'monkey')
+    // sets change for the language so other components know what langauge should be displayed
+    translate() {
+      this.$serviceHandler.setLanguage(this.$i18n.locale);
     },
+
+    // get data from the api and store it in the global service handler
     setGlobalStudentNumber(number) {
-      // console.log(number.target.value);
-      // console.log(number);
-      var strippedNum = parseInt(number.target.value.replace(/\D/g, ""));
-      this.$serviceHandler.setStudentNumber(strippedNum);
+      this.$serviceHandler.setStudentNumber(number.target.value);
       axios({
         method: "get",
         url: this.$serviceHandler.url + "result",
         params: {
-          studentNumber: strippedNum,
+          studentNumber: number.target.value,
         },
       }).then((res) => {
         this.$serviceHandler.setData(res.data.body);
         this.dataLoaded = true;
       });
-      this.studentNumber = strippedNum;
+      this.studentNumber = number.target.value;
       this.numberEntered = true;
     },
   },
+
   computed: {
     translateItems: function () {
       return {
@@ -97,16 +92,14 @@ export default {
       };
     },
   },
+
   data() {
     return {
       dataLoaded: false,
       numberEntered: false,
       tab: null,
       langs: ["en", "nl"],
-      tempt: "",
-      tempr: "",
     };
   },
-  watch: {},
 };
 </script>
